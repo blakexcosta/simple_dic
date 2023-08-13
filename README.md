@@ -9,10 +9,13 @@ where keys are of type String and values can be of any type T.
 ## Functions and Usage
 
 ### new() -> Self
+This function creates a new instance of the Dictionary struct.
 ```rs
 let mut my_dict = Dictionary::new();
 ```
 ### push(&mut self, key: String, value: T) -> Result<(), String>
+Use this function to add a new key-value pair to the dictionary. 
+If the key already exists, it returns an error message.
 ```rs
 let key = "name".to_string();
 let value = "John".to_string();
@@ -23,10 +26,12 @@ match my_dict.push(key, value) {
 }
 ```
 ### pop(&mut self)
+This function removes the newest (last-added) key-value pair from the dictionary.
 ```rs
 my_dict.pop();
 ```
 ### search(&self, key: String) -> bool
+Use this function to check if a key exists in the dictionary.
 ```rs
 if my_dict.search("name".to_string()) {
     println!("Key found!");
@@ -36,12 +41,14 @@ if my_dict.search("name".to_string()) {
 
 ```
 ### len(&self) -> usize
+This function returns the number of key-value pairs in the dictionary.
 ```rs
 let num_entries = my_dict.len();
 println!("Number of entries in the dictionary: {}", num_entries);
 
 ```
 ### drop(&mut self, key: String) -> bool
+This function deletes a key-value pair based on the provided key. It returns true if the key-value pair was found and deleted, otherwise false.
 ```rs
 if my_dict.drop("name".to_string()) {
     println!("Key-value pair deleted successfully.");
@@ -51,6 +58,7 @@ if my_dict.drop("name".to_string()) {
 
 ```
 ### contains(&self, value: &T) -> bool
+This function checks if a given value exists in the dictionary's values.
 ```rs
 if my_dict.contains(&"John".to_string()) {
     println!("Value found in the dictionary.");
