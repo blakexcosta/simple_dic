@@ -67,6 +67,23 @@ if my_dict.contains(&"John".to_string()) {
 }
 
 ```
+###raw_search(&self, key: String) -> Result<usize, String>
+```
+match my_dict.raw_search("name".to_string()) {
+    Ok(index) => println!("Key found at index: {}", index),
+    Err(err) => println!("Error: {}", err),
+}
+
+```
+### overwrite(&mut self, key: String, newvalue: T) -> Result<(), String>
+This function overwrites the value associated with a key. If the key is found, the value is updated. If the key is not found, an error is returned.
+```rs
+match my_dict.overwrite("name".to_string(), "Jane".to_string()) {
+    Ok(()) => println!("Value updated successfully."),
+    Err(err) => println!("Error: {}", err),
+}
+
+```
 ## Example
 ```rs
 use dictionary::Dictionary;
