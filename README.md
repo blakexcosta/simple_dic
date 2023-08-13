@@ -35,3 +35,48 @@ if my_dict.search("name".to_string()) {
 }
 
 ```
+### len(&self) -> usize
+```rs
+let num_entries = my_dict.len();
+println!("Number of entries in the dictionary: {}", num_entries);
+
+```
+### drop(&mut self, key: String) -> bool
+```rs
+if my_dict.drop("name".to_string()) {
+    println!("Key-value pair deleted successfully.");
+} else {
+    println!("Key-value pair not found.");
+}
+
+```
+### contains(&self, value: &T) -> bool
+```rs
+if my_dict.contains(&"John".to_string()) {
+    println!("Value found in the dictionary.");
+} else {
+    println!("Value not found.");
+}
+
+```
+## Example
+```rs
+use dictionary::Dictionary;
+
+fn main() {
+    let mut my_dict = Dictionary::new();
+    
+    my_dict.push("name".to_string(), "John".to_string()).unwrap();
+    my_dict.push("age".to_string(), 25).unwrap();
+
+    println!("Dictionary contains 'name': {}", my_dict.search("name".to_string()));
+    println!("Dictionary length: {}", my_dict.len());
+
+    my_dict.pop();
+    println!("Dictionary length after pop: {}", my_dict.len());
+
+    my_dict.drop("age".to_string());
+    println!("Dictionary length after drop: {}", my_dict.len());
+}
+
+```
