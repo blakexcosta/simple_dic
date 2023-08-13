@@ -67,7 +67,7 @@ if my_dict.contains(&"John".to_string()) {
 }
 
 ```
-###raw_search(&self, key: String) -> Result<usize, String>
+### raw_search(&self, key: String) -> Result<usize, String>
 ```
 match my_dict.raw_search("name".to_string()) {
     Ok(index) => println!("Key found at index: {}", index),
