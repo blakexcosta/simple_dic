@@ -9,11 +9,11 @@ where keys are of type String and values can be of any type T.
 ## Functions and Usage
 
 ### new() -> Self
-```
+```rs
 let mut my_dict = Dictionary::new();
 ```
 ### push(&mut self, key: String, value: T) -> Result<(), String>
-```
+```rs
 let key = "name".to_string();
 let value = "John".to_string();
 
@@ -23,7 +23,15 @@ match my_dict.push(key, value) {
 }
 ```
 ### pop(&mut self)
-```
+```rs
 my_dict.pop();
 ```
+### search(&self, key: String) -> bool
+```rs
+if my_dict.search("name".to_string()) {
+    println!("Key found!");
+} else {
+    println!("Key not found.");
+}
 
+```
