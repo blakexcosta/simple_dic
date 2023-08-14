@@ -11,7 +11,7 @@ where keys are of type String and values can be of any type T.
 ### new() -> Self
 This function creates a new instance of the Dictionary struct.
 ```rs
-let mut my_dict = Dictionary::new();
+let mut my_dict = Dictionary::<T>::new();
 ```
 ### push(&mut self, key: String, value: T) -> Result<(), String>
 Use this function to add a new key-value pair to the dictionary. 
