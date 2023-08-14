@@ -1,4 +1,5 @@
- struct Dictionary<T> {
+use std::fmt; 
+struct Dictionary<T> {
         key: Vec<String>,
         value: Vec<T>,
     }
@@ -76,6 +77,30 @@
             }     
         }
     } 
+ impl<T> fmt::Display for Dictionary<T> 
+    where
+    T: fmt::Display,{
+    fn fmt(&self,f: &mut fmt::Formatter) -> fmt::Result{
+          if self.key.len() != self.value.len() {
+            return Err(fmt::Error);
+        }
+
+        writeln!(f, "{{")?;
+
+        for (i, (key, value)) in self.key.iter().zip(self.value.iter()).enumerate() {
+            write!(f, "   {}: ", key)?;
+            value.fmt(f)?;
+
+            if i < self.key.len() - 1 {
+                writeln!(f, ",")?;
+            } else {
+                writeln!(f)?;
+            }
+        }
+
+        writeln!(f, "}}")
+    }
+ }
 #[cfg(test)]
 mod tests {
     use crate::Dictionary;
@@ -145,5 +170,14 @@ mod tests {
         f = obj.contains(&"x20".to_string());
         assert_eq!(f,true);
     }
+    #[test]
+     fn testcase5(){
+        //testing priting
+        let mut obj = Dictionary::<String>::new();
+        for i in 0..20{
+             let iclone = i.clone().to_string();
+            obj.push(format!("a{}",iclone),format!("b{}",iclone));
+         }
+         println!("{}",obj);
+    }
 }
-
