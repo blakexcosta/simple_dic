@@ -7,7 +7,7 @@ The dictionary allows you to store key-value pairs
 where keys are of type String and values can be of any type T.
 
 ## Functions and Usage
-###Include in project
+### Include in project
 ```rs
 use simple_dic::Dictionary;
 ```
