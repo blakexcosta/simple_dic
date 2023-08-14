@@ -1,5 +1,6 @@
 use std::fmt; 
-struct Dictionary<T> {
+
+pub struct Dictionary<T> {
         key: Vec<String>,
         value: Vec<T>,
     }
