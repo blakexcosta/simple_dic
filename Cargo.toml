@@ -2,7 +2,10 @@
 name = "simple_dic"
 version = "0.1.0"
 edition = "2021"
-
+license = "MIT"
+readme = "README.md"
+description = "This crate provides a simple dictionary implementation in Rust with various functions to manipulate and interact with the dictionary data structure. The dictionary allows you to store key-value pairs where keys are of type String and values can be of any type T."
+repository = "https://github.com/dorian3343/simple_dic"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
